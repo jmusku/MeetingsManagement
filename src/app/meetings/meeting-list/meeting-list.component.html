@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-sm-12">
+        <button class="btn btn-primary" (click)="onNewMeeting()">New Meeting</button>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table" style="border: solid 2px black;">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Attendees</th>
+                    <th scope="col">Agenda</th>
+                    <th scope="col">Date Time</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="cursor: pointer;" *ngFor="let meetingEl of meetingAttendees; let i = index"
+                    [routerLink]="[meetingEl.Meeting.Id]">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{meetingEl.Meeting.Subject}}</td>
+                    <td>{{meetingEl.Meeting.AttendeeInfo}}</td>
+                    <td>{{meetingEl.Meeting.Agenda}}</td>
+                    <td>{{meetingEl.Meeting.Date | date:'dd/MM/yy hh:mm a'}}</td>
+                    <td><button class="btn btn-secondary" (click)="onEditMeeting(meetingEl.Meeting.Id)">Update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

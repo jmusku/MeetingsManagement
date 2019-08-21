@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-12" *ngIf="meetingattendee">
+        <form>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" class="form-control" name="subject" [(ngModel)]="meetingattendee.Meeting.Subject"
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="attendees">Attendees</label>
+                    <input type="text" id="attendees" class="form-control" name="attendees"
+                        [(ngModel)]="meetingattendee.Meeting.Attendees" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="agenda">Agenda</label>
+                    <input type="text" id="agenda" class="form-control" name="agenda" [(ngModel)]="meetingattendee.Meeting.Agenda"
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="datetime">Date Time</label>
+                    <app-date-time-picker [(ngModel)]="meetingattendee.Meeting.Date" name="datetime"></app-date-time-picker>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-success" type="submit"
+                        (click)="onAddUpdate()">{{ id === 0 ? 'Add' : 'Update' }}</button>
+                    <button *ngIf="id === 0" class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+                    <button class="btn btn-danger" routerLink="/meetings">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

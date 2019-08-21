@@ -1,0 +1,42 @@
+<hr>
+<div *ngIf="meetingattendee">
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Subject</label>
+        </div>
+        <div class="col-sm-8">
+            <p>{{meetingattendee.Meeting.Subject}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Attendees</label>
+        </div>
+        <div class="col-sm-8">
+            <span>{{meetingattendee.Meeting.AttendeeInfo}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Agenda</label>
+        </div>
+        <div class="col-sm-8">
+            <span>{{meetingattendee.Meeting.Agenda}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Date Time</label>
+        </div>
+        <div class="col-sm-8">
+            <span>{{meetingattendee.Meeting.Date | date:'dd/MM/yy hh:mm a'}}</span>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="!meetingattendee">
+    <p>Loading Please Wait ... </p>
+</div>
+<hr>
+<div class="row">
+    <button class="btn btn-secondary" routerLink="/meetings">Back to List</button>
+</div>
